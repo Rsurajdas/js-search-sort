@@ -179,7 +179,7 @@ const covertToObj = function (arr) {
   arr.forEach((el, idx) => {
     if (idx !== 0) {
       let obj = {};
-      arr[1].forEach((el, idx) => {
+      el.forEach((el, idx) => {
         obj[arr[0][idx]] = el;
       });
       output.push(obj);
