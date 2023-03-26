@@ -157,3 +157,35 @@ const interpolationSearch = (arr = [], target) => {
   return -1;
 };
 console.log(interpolationSearch(sortedArr, 31));
+
+// ------------
+const user = `id,firstName,lastName,email,gender
+1,suraj,kumar,suraj@email.com,male
+2,sasi,dharan,sasi@email.com,male
+3,nirmal,kumar,nirmal@email.com,male`;
+
+const csvToArr = function (data) {
+  let output = [];
+  // for (const row of data.split('\n')) {
+  //   output.push(row.split(','))
+  // }
+  data.split("\n").forEach((el) => output.push(el.split(",")));
+  return output;
+};
+
+console.log(csvToArr(user));
+const covertToObj = function (arr) {
+  let output = [];
+  arr.forEach((el, idx) => {
+    if (idx !== 0) {
+      let obj = {};
+      arr[1].forEach((el, idx) => {
+        obj[arr[0][idx]] = el;
+      });
+      output.push(obj);
+    }
+  });
+  return output;
+};
+
+console.log(covertToObj(csvToArr(user)));
